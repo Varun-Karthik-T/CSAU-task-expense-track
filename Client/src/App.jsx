@@ -32,6 +32,8 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
+import { MdDelete } from "react-icons/md";
+import { FaPencilAlt } from "react-icons/fa";
 
 
 
@@ -238,6 +240,8 @@ function App() {
                 <TableHead>Name</TableHead>
                 <TableHead>Category</TableHead>
                 <TableHead>Date</TableHead>
+                <TableHead>CreatedAt</TableHead>
+                <TableHead>UpdatedAt</TableHead>
                 <TableHead className="text-right">Amount</TableHead>
               </TableRow>
             </TableHeader>
@@ -245,11 +249,11 @@ function App() {
               {expenses.map((expense) => (
                 <TableRow key={expense._id}>
                   <TableCell>
-                    <Button onClick={() => handleDeleteClick(expense._id)}>Delete</Button>
+                    <Button onClick={() => handleDeleteClick(expense._id)}><MdDelete className="size-5"/></Button>
                   </TableCell>
                   <TableCell>
                     <Popover>
-                      <PopoverTrigger><Button>Edit</Button></PopoverTrigger>
+                      <PopoverTrigger><Button><FaPencilAlt className="size-5" /></Button></PopoverTrigger>
                       <PopoverContent>
                         <form onSubmit={(e) => handleEditClick(e, expense._id)}>
                           <label htmlFor="name">Name:</label>
@@ -268,7 +272,10 @@ function App() {
                   <TableCell className="font-medium">{expense.name}</TableCell>
                   <TableCell>{expense.category}</TableCell>
                   <TableCell>{expense.date}</TableCell>
+                  <TableCell>{expense.createdAt}</TableCell>
+                  <TableCell>{expense.updatedAt}</TableCell>
                   <TableCell className="text-right">{expense.amount}</TableCell>
+                  
                 </TableRow>
               ))}
             </TableBody>
