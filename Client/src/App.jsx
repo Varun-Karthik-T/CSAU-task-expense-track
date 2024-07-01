@@ -238,6 +238,8 @@ function App() {
                 <TableHead>Name</TableHead>
                 <TableHead>Category</TableHead>
                 <TableHead>Date</TableHead>
+                <TableHead>CreatedAt</TableHead>
+                <TableHead>UpdatedAt</TableHead>
                 <TableHead className="text-right">Amount</TableHead>
               </TableRow>
             </TableHeader>
@@ -268,7 +270,10 @@ function App() {
                   <TableCell className="font-medium">{expense.name}</TableCell>
                   <TableCell>{expense.category}</TableCell>
                   <TableCell>{expense.date}</TableCell>
+                  <TableCell>{expense.createdAt}</TableCell>
+                  <TableCell>{expense.updatedAt}</TableCell>
                   <TableCell className="text-right">{expense.amount}</TableCell>
+                  
                 </TableRow>
               ))}
             </TableBody>
