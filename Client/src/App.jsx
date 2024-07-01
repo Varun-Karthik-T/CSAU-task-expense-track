@@ -32,6 +32,8 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
+import { MdDelete } from "react-icons/md";
+import { FaPencilAlt } from "react-icons/fa";
 
 
 
@@ -247,11 +249,11 @@ function App() {
               {expenses.map((expense) => (
                 <TableRow key={expense._id}>
                   <TableCell>
-                    <Button onClick={() => handleDeleteClick(expense._id)}>Delete</Button>
+                    <Button onClick={() => handleDeleteClick(expense._id)}><MdDelete className="size-5"/></Button>
                   </TableCell>
                   <TableCell>
                     <Popover>
-                      <PopoverTrigger><Button>Edit</Button></PopoverTrigger>
+                      <PopoverTrigger><Button><FaPencilAlt className="size-5" /></Button></PopoverTrigger>
                       <PopoverContent>
                         <form onSubmit={(e) => handleEditClick(e, expense._id)}>
                           <label htmlFor="name">Name:</label>
